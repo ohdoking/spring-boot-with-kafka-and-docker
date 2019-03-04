@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  kafka-consumer:
+    container_name: kafka-consumer
+    build: ./kafka-consumer
+    ports:
+      - "8080:8080"
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n -jar -Dspring.profiles.active=docker /app.jar
+      "
+
+  kafka-producer:
+    container_name: kafka-producer
+    build: ./kafka-producer
+    ports:
+      - "8081:8081"
+    entrypoint: /bin/sh
+    command: >
+      -c "
+      java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n -jar -Dspring.profiles.active=docker /app.jar
+      "
