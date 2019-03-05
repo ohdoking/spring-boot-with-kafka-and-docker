@@ -1,8 +1,15 @@
 package com.ohdoking.consumer.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class User {
 
+    @Getter
+    @Setter
     private String name;
+    @Getter
+    @Setter
     private int age;
 
     public User(String name, int age) {
