@@ -3,7 +3,7 @@ spring:
     name: kafka-consumer
   kafka:
     consumer:
-      bootstrap-servers: kafka-consumer:9092
+      bootstrap-servers: kafka-2:9092
       group-id: group_id
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer

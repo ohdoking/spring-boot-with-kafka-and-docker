@@ -12,21 +12,9 @@ server:
     context-path: /api/v1/producer
 ---
 
-# ----------------------------------------
-# REST PROPERTIES
-# ----------------------------------------
-spring:
-  data:
-    rest:
-      basePath: /producer
-      defaultPageSize: 10
-      maxPageSize: 100
-
----
-
 spring:
   kafka:
     producer:
-      bootstrap-servers: kafka-producer:9092
+      bootstrap-servers: kafka-2:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
