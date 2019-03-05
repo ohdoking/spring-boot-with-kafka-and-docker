@@ -4,22 +4,28 @@ services:
   kafka-consumer:
     container_name: kafka-consumer
     build: ./kafka-consumer
+    depends_on:
+      - kafka-2
     ports:
       - "8080:8080"
     entrypoint: /bin/sh
     command: >
       -c "
+      while ! (nc -z kafka-2 9092 ); do sleep 5; echo 'Waiting for kafka-2 services to start-up...'; done;
       java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n -jar -Dspring.profiles.active=docker /app.jar
       "
 
   kafka-producer:
     container_name: kafka-producer
     build: ./kafka-producer
+    depends_on:
+      - kafka-2
     ports:
-      - "8081:8081"
+      - "8083:8083"
     entrypoint: /bin/sh
     command: >
       -c "
+      while ! (nc -z kafka-2 9092 ); do sleep 5; echo 'Waiting for kafka-2 services to start-up...'; done;
       java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n -jar -Dspring.profiles.active=docker /app.jar
       "
 
@@ -61,7 +67,7 @@ services:
       - zookeeper-2
       - kafka-2
     ports:
-      - "8082:8082"
+      - "8081:8081"
     env_file:
       - config/schema-registry.env
 
