@@ -13,6 +13,7 @@
       <change beforePath="$PROJECT_DIR$/config/schema-registry.env" beforeDir="false" afterPath="$PROJECT_DIR$/config/schema-registry.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/zookeeper.env" beforeDir="false" afterPath="$PROJECT_DIR$/config/zookeeper.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kafka-consumer/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-consumer/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kafka-consumer/kafkaconsumer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-consumer/kafkaconsumer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kafka-consumer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-consumer/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kafka-producer/kafkaproducer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/kafka-producer/kafkaproducer.iml" afterDir="false" />
@@ -479,13 +480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kafka-consumer/src/main/resources/bootstrap.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="12" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kafka-consumer/src/main/resources/bootstrap-docker.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -521,6 +515,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="27" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kafka-consumer/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="12" selection-end-column="82" />
         </state>
       </provider>
     </entry>
