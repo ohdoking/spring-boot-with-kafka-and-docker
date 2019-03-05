@@ -23,10 +23,10 @@ services:
       java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n -jar -Dspring.profiles.active=docker /app.jar
       "
 
-  zookeeper-1:
+  zookeeper-2:
     image: confluentinc/cp-zookeeper:5.0.0
-    hostname: zookeeper-1
-    container_name: zookeeper-1
+    hostname: zookeeper-2
+    container_name: zookeeper-2
     ports:
       - "2181:2181"
     env_file:
@@ -35,37 +35,37 @@ services:
       test: /bin/sh -c '[ \"imok\" = \"$$(echo ruok | nc -w 1 127.0.0.1 2181)\" ]' || exit 1
       interval: 1m
     volumes:
-      - zookeeper-1-data:/var/lib/zookeeper/data/
-      - zookeeper-1-log:/var/lib/zookeeper/log/
+      - zookeeper-2-data:/var/lib/zookeeper/data/
+      - zookeeper-2-log:/var/lib/zookeeper/log/
 
-  kafka-1:
+  kafka-2:
     image: confluentinc/cp-kafka:5.0.0
-    hostname: kafka-1
-    container_name: kafka-1
+    hostname: kafka-2
+    container_name: kafka-2
     stop_grace_period: 5m
     depends_on:
-      - zookeeper-1
+      - zookeeper-2
     ports:
       - "9092:9092"
       - "29092:29092"
     env_file:
       - config/kafka.env
     volumes:
-      - kafka-1-data:/var/lib/kafka/data/
+      - kafka-2-data:/var/lib/kafka/data/
 
-  schema-registry:
+  schema-registry-2:
     image: confluentinc/cp-schema-registry:5.0.0
-    hostname: schema-registry
-    container_name: schema-registry
+    hostname: schema-registry-2
+    container_name: schema-registry-2
     depends_on:
-      - zookeeper-1
-      - kafka-1
+      - zookeeper-2
+      - kafka-2
     ports:
-      - "8081:8081"
+      - "8082:8082"
     env_file:
       - config/schema-registry.env
 
 volumes:
-  zookeeper-1-data:
-  zookeeper-1-log:
-  kafka-1-data:
+  zookeeper-2-data:
+  zookeeper-2-log:
+  kafka-2-data:
